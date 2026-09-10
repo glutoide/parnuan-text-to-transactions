@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parnuan — Text to transactions POC</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <p class="eyebrow">Parnuan · take-home proof of concept</p>
+      <h1>Text → transactions</h1>
+      <p class="subtitle">Type financial activity in natural language, review what was parsed, edit anything uncertain, then confirm.</p>
+    </header>
+
+    <section class="panel input-panel" aria-labelledby="input-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">1 · Input</p>
+          <h2 id="input-title">What happened?</h2>
+        </div>
+      </div>
+      <textarea id="message" rows="4" maxlength="2000" aria-label="Financial activity message">ข้าวมันไก่ 50 น้ำเปล่า 7 แล้วก็ช้อปปิ้ง 500</textarea>
+      <div class="demo-row" aria-label="Required demo cases">
+        <button class="chip" type="button" data-demo="single">Single</button>
+        <button class="chip" type="button" data-demo="multiple">Multiple</button>
+        <button class="chip" type="button" data-demo="time">Time reference</button>
+      </div>
+      <div class="actions">
+        <button id="parse-button" class="primary" type="button">Parse message</button>
+        <span id="request-status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="review-title">
+      <div class="section-heading">
+        <div>
+          <p class="step">2 · Review</p>
+          <h2 id="review-title">Check before confirming</h2>
+        </div>
+        <span id="review-badge" class="badge">Not parsed</span>
+      </div>
+      <div id="message-warnings" class="warnings" aria-live="polite"></div>
+      <div id="transactions" class="transactions">
+        <p class="empty">Parse a message to see transaction candidates.</p>
+      </div>
+      <div class="actions">
+        <button id="confirm-button" class="primary" type="button" disabled>Confirm reviewed transactions</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="confirmed-title">
+      <p class="step">3 · Confirmed output</p>
+      <h2 id="confirmed-title">Result</h2>
+      <pre id="confirmed-output" aria-live="polite">Nothing confirmed yet.</pre>
+    </section>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
