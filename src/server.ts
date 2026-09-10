@@ -79,7 +79,7 @@ export function createAppServer() {
 
       if (method === 'GET' && url.pathname === '/') return await serveStatic(res, 'index.html', 'text/html; charset=utf-8');
       if (method === 'GET' && url.pathname === '/app.js') return await serveStatic(res, 'app.js', 'text/javascript; charset=utf-8');
-      if (method === 'GET' && url.pathname === '/styles.css') return await serveStatic(res, 'styles.css; charset=utf-8');
+      if (method === 'GET' && url.pathname === '/styles.css') return await serveStatic(res, 'styles.css', 'text/css; charset=utf-8');
 
       sendJson(res, 404, { error: 'not found' });
     } catch (error) {
