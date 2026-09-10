@@ -1,0 +1,14 @@
+{
+  "name": "parnuan-text-to-transactions",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "scripts": {
+    "test": "node --disable-warning=ExperimentalWarning --experimental-strip-types --test test/*.test.ts",
+    "check": "node --disable-warning=ExperimentalWarning --experimental-strip-types --check src/parser.ts && node --disable-warning=ExperimentalWarning --experimental-strip-types --check src/review.ts && node --disable-warning=ExperimentalWarning --experimental-strip-types --check src/server.ts && node --check public/app.js",
+    "start": "node --disable-warning=ExperimentalWarning --experimental-strip-types src/server.ts"
+  }
+}
